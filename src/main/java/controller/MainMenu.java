@@ -13,10 +13,10 @@ public class MainMenu {
 
             if (selectedNumber == 1)
             {
-
+                SignInMenu.show();
             } else if (selectedNumber == 2)
             {
-
+                SignUpMenu.show();
             } else{
                 break;
             }
