@@ -1,9 +1,7 @@
 package domains;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -41,10 +39,25 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> postList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Follower> followerList = new ArrayList<>();
+//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Follower> followerList = new ArrayList<>();
 
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="follower",
+            joinColumns={@JoinColumn(name="account_Id")},
+            inverseJoinColumns={@JoinColumn(name="follower_accountId")})
+    private Set<Account> followers = new HashSet<>();
+
+
+    public Set<Account> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<Account> followers) {
+        this.followers = followers;
+    }
 
     public Account() {
     }
@@ -129,11 +142,11 @@ public class Account {
         this.postList = postList;
     }
 
-    public List<Follower> getFollowerList() {
-        return followerList;
-    }
-
-    public void setFollowerList(List<Follower> followerList) {
-        this.followerList = followerList;
-    }
+//    public List<Follower> getFollowerList() {
+//        return followerList;
+//    }
+//
+//    public void setFollowerList(List<Follower> followerList) {
+//        this.followerList = followerList;
+//    }
 }

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.jar.JarOutputStream;
 
 public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
     protected abstract Class<Entity> getEntityClass();
@@ -35,6 +36,8 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
             entityManager.getTransaction().commit();
             System.out.println("Registration completed successfully");
         } catch (PersistenceException p) {
+            System.out.println(p.getLocalizedMessage());
+            System.out.println(p.getMessage());
             System.out.println("The information entered is not valid");
         }
         return entity;

@@ -63,6 +63,10 @@ public class Post {
         return commentList;
     }
 
+    public void addComment(Comment comment) {
+        this.commentList.add(comment);
+    }
+
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
     }
@@ -73,6 +77,10 @@ public class Post {
 
     public void setLikeList(List<Like> likeList) {
         this.likeList = likeList;
+    }
+
+    public void addLike(Like like) {
+        this.likeList.add(like);
     }
 
     public Account getAccount() {

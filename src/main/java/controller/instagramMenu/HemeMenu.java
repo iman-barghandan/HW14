@@ -20,7 +20,7 @@ public class HemeMenu {
             selectedNumber = ScannerClass.getNumber(1, 9);
 
             if (selectedNumber == 1) {
-
+                PostsMenu.show(account);
             } else if (selectedNumber == 2) {
 
             } else if (selectedNumber == 3) {
