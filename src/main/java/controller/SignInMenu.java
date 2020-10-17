@@ -1,5 +1,6 @@
 package controller;
 
+import controller.instagramMenu.HemeMenu;
 import domains.Account;
 import scanner.ScannerClass;
 import services.AccountService;
@@ -16,7 +17,7 @@ public class SignInMenu {
         AccountService accountService = new AccountService();
         Account account = accountService.selectByUserNameAndPassword(userName, password);
         if (account!=null) {
-            System.out.println("yeeeees");
+            HemeMenu.show(account);
         } else System.out.println("You did not register");
     }
 }

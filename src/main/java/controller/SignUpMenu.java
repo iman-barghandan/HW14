@@ -1,5 +1,6 @@
 package controller;
 
+import controller.instagramMenu.HemeMenu;
 import domains.Account;
 import scanner.ScannerClass;
 import services.AccountService;
@@ -25,7 +26,7 @@ public class SignUpMenu {
         Account account = accountService.signUp(name,lastName,userName,password,phoneNumber);
         if (account!=null)
         {
-
+            HemeMenu.show(account);
         }
     }
 }
