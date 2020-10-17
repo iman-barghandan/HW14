@@ -1,23 +1,19 @@
 package services;
 
 import domains.Account;
-import domains.Comment;
 import domains.Like;
 import domains.Post;
 import repositories.LikeRepositoryDAO;
 import repositories.PostRepositoryDAO;
 
-import java.util.Date;
 
 public class LikeService {
     LikeRepositoryDAO likeRepositoryDAO = LikeRepositoryDAO.getInstance();
     PostRepositoryDAO postRepositoryDAO = PostRepositoryDAO.getInstance();
 
-    public void likeComment(Account account, long postId)
-    {
+    public void likeComment(Account account, long postId) {
         Post post = postRepositoryDAO.selectById(postId);
-        if (post!=null)
-        {
+        if (post != null) {
             Like like = new Like();
             like.setAccount(account);
             like.setPost(post);

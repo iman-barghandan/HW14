@@ -14,7 +14,7 @@ public class Comment {
     private String text;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false , updatable = false)
+    @Column(nullable = false, updatable = false)
     private Date createDate;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
@@ -22,7 +22,7 @@ public class Comment {
     private Post post;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(nullable = false,name = "fk_account")
+    @JoinColumn(nullable = false, name = "fk_account")
     private Account account;
 
     public Comment() {
@@ -67,4 +67,6 @@ public class Comment {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 }

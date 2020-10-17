@@ -1,7 +1,6 @@
 package domains;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "like_tb")
@@ -45,5 +44,7 @@ public class Like {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 
 }

@@ -17,7 +17,7 @@ public class Post {
     private String textPost;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false , updatable = false)
+    @Column(nullable = false, updatable = false)
     private Date createDate;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -90,4 +90,6 @@ public class Post {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 }

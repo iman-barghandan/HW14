@@ -6,7 +6,7 @@ import scanner.ScannerClass;
 import services.AccountService;
 
 public class SignUpMenu {
-    public static void show(){
+    public static void show() {
         System.out.println("Name: ");
         String name = ScannerClass.getString();
 
@@ -23,9 +23,8 @@ public class SignUpMenu {
         String phoneNumber = ScannerClass.getString();
 
         AccountService accountService = new AccountService();
-        Account account = accountService.signUp(name,lastName,userName,password,phoneNumber);
-        if (account!=null)
-        {
+        Account account = accountService.signUp(name, lastName, userName, password, phoneNumber);
+        if (account != null) {
             HemeMenu.show(account);
         }
     }

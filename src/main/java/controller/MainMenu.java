@@ -11,13 +11,11 @@ public class MainMenu {
                     "(3) End program");
             selectedNumber = ScannerClass.getNumber(1, 3);
 
-            if (selectedNumber == 1)
-            {
+            if (selectedNumber == 1) {
                 SignInMenu.show();
-            } else if (selectedNumber == 2)
-            {
+            } else if (selectedNumber == 2) {
                 SignUpMenu.show();
-            } else{
+            } else {
                 break;
             }
         }

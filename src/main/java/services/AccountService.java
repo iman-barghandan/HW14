@@ -23,14 +23,12 @@ public class AccountService {
 
     public Account selectByUserNameAndPassword(String userName, String password) {
         List<Account> accountList = accountRepositoryDAO.selectAll();
-        Account account=null;
-        if (accountList.size() > 0)
-        {
-            for (Account item : accountList)
-            {
+        Account account = null;
+        if (accountList.size() > 0) {
+            for (Account item : accountList) {
                 if (item.getUsername().equals(userName) && item.getPassword().equals(password)) {
                     System.out.println("welcome");
-                    account=item;
+                    account = item;
                 }
             }
         }

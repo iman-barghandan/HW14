@@ -17,17 +17,17 @@ public class Account {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false , unique = true)
+    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false , unique = true)
+    @Column(nullable = false, unique = true)
     private String password;
 
-    @Column(nullable = false , unique = true)
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
     @Temporal(TemporalType.DATE)
-    @Column(nullable = false , updatable = false)
+    @Column(nullable = false, updatable = false)
     private Date createDate;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -39,15 +39,12 @@ public class Account {
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> postList = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Follower> followerList = new ArrayList<>();
-
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name="follower",
-            joinColumns={@JoinColumn(name="account_Id")},
-            inverseJoinColumns={@JoinColumn(name="follower_accountId")})
+            name = "follower",
+            joinColumns = {@JoinColumn(name = "account_Id")},
+            inverseJoinColumns = {@JoinColumn(name = "follower_accountId")})
     private Set<Account> followers = new HashSet<>();
 
 
@@ -142,11 +139,5 @@ public class Account {
         this.postList = postList;
     }
 
-//    public List<Follower> getFollowerList() {
-//        return followerList;
-//    }
-//
-//    public void setFollowerList(List<Follower> followerList) {
-//        this.followerList = followerList;
-//    }
+
 }

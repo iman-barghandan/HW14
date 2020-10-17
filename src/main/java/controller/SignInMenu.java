@@ -16,7 +16,7 @@ public class SignInMenu {
 
         AccountService accountService = new AccountService();
         Account account = accountService.selectByUserNameAndPassword(userName, password);
-        if (account!=null) {
+        if (account != null) {
             HemeMenu.show(account);
         } else System.out.println("You did not register");
     }
