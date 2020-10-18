@@ -56,6 +56,9 @@ public class Account {
         this.followers = followers;
     }
 
+    public void addFollower(Account account){this.followers.add(account);}
+    public void deleteFollower(Account account){this.followers.remove(account);}
+
     public Account() {
     }
 

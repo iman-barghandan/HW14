@@ -4,6 +4,7 @@ package controller.instagramMenu;
 import domains.Account;
 import domains.Post;
 import scanner.ScannerClass;
+import services.AccountService;
 import services.PostService;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class HemeMenu {
     public static void show(Account account) {
         PostService postService = new PostService();
+        AccountService accountService = new AccountService();
         int selectedNumber;
         while (true) {
             System.out.println("(1) Posts\n" +
@@ -47,7 +49,7 @@ public class HemeMenu {
                 long postId = ScannerClass.getNumber();
                 postService.deletePost(account,postId);
             } else if (selectedNumber == 6) {
-
+                FollowingMenu.show(account);
             } else if (selectedNumber == 7) {
 
             } else if (selectedNumber == 8) {

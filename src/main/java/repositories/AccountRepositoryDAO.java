@@ -15,6 +15,8 @@ public class AccountRepositoryDAO extends BaseRepositoryDAO<Account, Long> {
         return accountRepositoryDAO;
     }
 
+
+
     @Override
     protected Class<Account> getEntityClass() {
         return Account.class;

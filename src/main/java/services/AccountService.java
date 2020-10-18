@@ -35,4 +35,17 @@ public class AccountService {
 
         return account;
     }
+
+    public Account findByUserName(String userName)
+    {
+        Account account = accountRepositoryDAO.findByUserName(userName);
+        if (account!=null)
+        {
+            System.out.println("Account Id: " + account.getId());
+            System.out.println("Name: " + account.getName());
+            System.out.println("LastName: " + account.getLastName());
+            System.out.println("UserName: " + account.getUsername());
+        }
+        return account;
+    }
 }

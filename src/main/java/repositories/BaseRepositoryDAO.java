@@ -2,9 +2,7 @@ package repositories;
 
 import entityManagerFactory.EntityManagerRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceException;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 import java.util.jar.JarOutputStream;
 
@@ -20,6 +18,23 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         List<Entity> entityList = query.getResultList();
         entityManager.getTransaction().commit();
         return entityList;
+    }
+
+    public Entity findByUserName(String userName)
+    {
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("SELECT a FROM Account a WHERE a.username=:userName");
+        query.setParameter("userName",userName);
+        Entity entity=null;
+        try {
+            entity = (Entity) query.getSingleResult();
+        }
+        catch (NoResultException n)
+        {
+            System.out.println("this username not exist");
+        }
+        entityManager.getTransaction().commit();
+        return entity;
     }
 
     public Entity selectById(Id id) {
