@@ -45,6 +45,4 @@ public class Like {
         this.account = account;
     }
 
-
-
 }

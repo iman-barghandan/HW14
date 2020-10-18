@@ -1,12 +1,12 @@
 package controller.instagramMenu;
+
 import domains.Account;
 import scanner.ScannerClass;
 import services.AccountService;
 
 
 public class EditAccountMenu {
-    public static void show(Account account)
-    {
+    public static void show(Account account) {
         System.out.println("Name: ");
         String newName = ScannerClass.getString();
 
@@ -23,6 +23,6 @@ public class EditAccountMenu {
         String newPhoneNumber = ScannerClass.getString();
 
         AccountService accountService = new AccountService();
-        accountService.editAccount(account,newName,newLastName,newUserName,newPassword,newPhoneNumber);
+        accountService.editAccount(account, newName, newLastName, newUserName, newPassword, newPhoneNumber);
     }
 }

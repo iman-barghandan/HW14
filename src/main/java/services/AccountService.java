@@ -42,11 +42,9 @@ public class AccountService {
         return account;
     }
 
-    public Account findByUserName(String userName)
-    {
+    public Account findByUserName(String userName) {
         Account account = accountRepositoryDAO.findByUserName(userName);
-        if (account!=null)
-        {
+        if (account != null) {
             System.out.println("Account Id: " + account.getId());
             System.out.println("Name: " + account.getName());
             System.out.println("LastName: " + account.getLastName());
@@ -55,16 +53,15 @@ public class AccountService {
         return account;
     }
 
-    public void deleteAccount(Account account)
-    {
+    public void deleteAccount(Account account) {
         accountRepositoryDAO.remove(account);
-        postRepositoryDAO.removeByFkAccount("Post",account.getId());
-        commentRepositoryDAO.removeByFkAccount("Comment" , account.getId());
-        likeRepositoryDAO.removeByFkAccount("Like" , account.getId());
+        postRepositoryDAO.removeByFkAccount("Post", account.getId());
+        commentRepositoryDAO.removeByFkAccount("Comment", account.getId());
+        likeRepositoryDAO.removeByFkAccount("Like", account.getId());
     }
 
 
-    public void editAccount(Account account , String newName, String newLastName, String newUsername, String newPassword, String newPhoneNumber) {
+    public void editAccount(Account account, String newName, String newLastName, String newUsername, String newPassword, String newPhoneNumber) {
         account.setName(newName);
         account.setLastName(newLastName);
         account.setUsername(newUsername);

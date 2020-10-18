@@ -33,7 +33,7 @@ public class HemeMenu {
             } else if (selectedNumber == 3) {
                 System.out.println("Input textPost: ");
                 String textPost = ScannerClass.getString();
-                postService.addPost(account,textPost);
+                postService.addPost(account, textPost);
             } else if (selectedNumber == 4) {
                 List<Post> postList = account.getPostList();
                 postService.selectPosts(postList);
@@ -41,13 +41,13 @@ public class HemeMenu {
                 long postId = ScannerClass.getNumber();
                 System.out.println("Input new TextPost: ");
                 String newTextPost = ScannerClass.getString();
-                postService.editPost(account,postId,newTextPost);
+                postService.editPost(account, postId, newTextPost);
             } else if (selectedNumber == 5) {
                 List<Post> postList = account.getPostList();
                 postService.selectPosts(postList);
                 System.out.println("Input Post ID: ");
                 long postId = ScannerClass.getNumber();
-                postService.deletePost(account,postId);
+                postService.deletePost(account, postId);
             } else if (selectedNumber == 6) {
                 FollowingMenu.show(account);
             } else if (selectedNumber == 7) {

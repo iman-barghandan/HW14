@@ -68,5 +68,4 @@ public class Comment {
         this.account = account;
     }
 
-
 }

@@ -47,6 +47,9 @@ public class Account {
             inverseJoinColumns = {@JoinColumn(name = "follower_accountId")})
     private Set<Account> followers = new HashSet<>();
 
+    public Account() {
+    }
+
 
     public Set<Account> getFollowers() {
         return followers;
@@ -56,11 +59,14 @@ public class Account {
         this.followers = followers;
     }
 
-    public void addFollower(Account account){this.followers.add(account);}
-    public void deleteFollower(Account account){this.followers.remove(account);}
-
-    public Account() {
+    public void addFollower(Account account) {
+        this.followers.add(account);
     }
+
+    public void deleteFollower(Account account) {
+        this.followers.remove(account);
+    }
+
 
     public long getId() {
         return id;
@@ -141,6 +147,7 @@ public class Account {
     public void setPostList(List<Post> postList) {
         this.postList = postList;
     }
+
     public void addPost(Post post) {
         this.postList.add(post);
     }

@@ -54,11 +54,10 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         return entity;
     }
 
-    public void removeByFkAccount(String inputEntity , long fkAccount)
-    {
+    public void removeByFkAccount(String inputEntity, long fkAccount) {
         entityManager.getTransaction().begin();
-        Query query= entityManager.createQuery("delete from "+ inputEntity + " e where e.account.id=:fkAccount");
-        query.setParameter("fkAccount",fkAccount);
+        Query query = entityManager.createQuery("delete from " + inputEntity + " e where e.account.id=:fkAccount");
+        query.setParameter("fkAccount", fkAccount);
         query.executeUpdate();
         entityManager.getTransaction().commit();
     }

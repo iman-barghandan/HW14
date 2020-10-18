@@ -55,8 +55,7 @@ public class PostService {
         }
     }
 
-    public void addPost(Account account,String textPost)
-    {
+    public void addPost(Account account, String textPost) {
         Post post = new Post();
         post.setAccount(account);
         post.setTextPost(textPost);
@@ -65,33 +64,23 @@ public class PostService {
         account.addPost(post);
     }
 
-    public void editPost(Account account , long postId , String newTextPost)
-    {
+    public void editPost(Account account, long postId, String newTextPost) {
         Post post = postRepositoryDAO.selectById(postId);
-        if (post!=null && post.getAccount().getId()==account.getId())
-        {
+        if (post != null && post.getAccount().getId() == account.getId()) {
             post.setTextPost(newTextPost);
             postRepositoryDAO.update(post);
             System.out.println("Done , updated");
 
-        }
-        else System.out.println("this post not exist");
+        } else System.out.println("this post not exist");
     }
 
-    public void deletePost(Account account , long postId)
-    {
+    public void deletePost(Account account, long postId) {
         Post post = postRepositoryDAO.selectById(postId);
-        if (post!=null && post.getAccount().getId()==account.getId())
-        {
+        if (post != null && post.getAccount().getId() == account.getId()) {
             post.getLikeList().clear();
             account.getPostList().remove(post);
             postRepositoryDAO.remove(post);
             System.out.println("Done , deleted");
         }
-    }
-
-    public void deletePostByFkAccount(long fkAccountId)
-    {
-        postRepositoryDAO.removeByFkAccount("Post" , fkAccountId);
     }
 }
