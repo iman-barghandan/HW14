@@ -20,10 +20,10 @@ public class Post {
     @Column(nullable = false, updatable = false)
     private Date createDate;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Like> likeList = new ArrayList<>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)

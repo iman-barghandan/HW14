@@ -138,6 +138,9 @@ public class Account {
     public void setPostList(List<Post> postList) {
         this.postList = postList;
     }
+    public void addPost(Post post) {
+        this.postList.add(post);
+    }
 
 
 }
