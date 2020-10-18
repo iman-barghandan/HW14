@@ -10,11 +10,11 @@ public class Like {
     @Column(nullable = false)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(nullable = false, name = "fk_post")
     private Post post;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(nullable = false, name = "fk_account")
     private Account account;
 

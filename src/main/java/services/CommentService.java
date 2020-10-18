@@ -26,4 +26,9 @@ public class CommentService {
             post.addComment(comment);
         }
     }
+
+    public void deletePostByFkAccount(long fkAccountId)
+    {
+        commentRepositoryDAO.removeByFkAccount("Comment" , fkAccountId);
+    }
 }

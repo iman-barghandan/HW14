@@ -17,11 +17,11 @@ public class Comment {
     @Column(nullable = false, updatable = false)
     private Date createDate;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(nullable = false, name = "fk_post")
     private Post post;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(nullable = false, name = "fk_account")
     private Account account;
 

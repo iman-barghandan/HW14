@@ -89,4 +89,9 @@ public class PostService {
             System.out.println("Done , deleted");
         }
     }
+
+    public void deletePostByFkAccount(long fkAccountId)
+    {
+        postRepositoryDAO.removeByFkAccount("Post" , fkAccountId);
+    }
 }

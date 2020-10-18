@@ -4,7 +4,6 @@ import entityManagerFactory.EntityManagerRepository;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.jar.JarOutputStream;
 
 public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
     protected abstract Class<Entity> getEntityClass();
@@ -20,17 +19,14 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         return entityList;
     }
 
-    public Entity findByUserName(String userName)
-    {
+    public Entity findByUserName(String userName) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("SELECT a FROM Account a WHERE a.username=:userName");
-        query.setParameter("userName",userName);
-        Entity entity=null;
+        query.setParameter("userName", userName);
+        Entity entity = null;
         try {
             entity = (Entity) query.getSingleResult();
-        }
-        catch (NoResultException n)
-        {
+        } catch (NoResultException n) {
             System.out.println("this username not exist");
         }
         entityManager.getTransaction().commit();
@@ -56,6 +52,15 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
             System.out.println("The information entered is not valid");
         }
         return entity;
+    }
+
+    public void removeByFkAccount(String inputEntity , long fkAccount)
+    {
+        entityManager.getTransaction().begin();
+        Query query= entityManager.createQuery("delete from "+ inputEntity + " e where e.account.id=:fkAccount");
+        query.setParameter("fkAccount",fkAccount);
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
     }
 
     public void remove(Entity entity) {

@@ -21,4 +21,9 @@ public class LikeService {
             post.addLike(like);
         }
     }
+
+    public void deletePostByFkAccount(long fkAccountId)
+    {
+        likeRepositoryDAO.removeByFkAccount("Like" , fkAccountId);
+    }
 }

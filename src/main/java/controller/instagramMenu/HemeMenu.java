@@ -22,8 +22,8 @@ public class HemeMenu {
                     "(5) Delete post\n" +
                     "(6) Search account\n" +
                     "(7) Edit account\n" +
-                    "(8) Delete account\n" +
-                    "(9) Sign-OUT");
+                    "(8) Sign-Out\n" +
+                    "(9) (((Delete account!)))");
             selectedNumber = ScannerClass.getNumber(1, 9);
 
             if (selectedNumber == 1) {
@@ -51,10 +51,11 @@ public class HemeMenu {
             } else if (selectedNumber == 6) {
                 FollowingMenu.show(account);
             } else if (selectedNumber == 7) {
-
+                EditAccountMenu.show(account);
             } else if (selectedNumber == 8) {
-
+                break;
             } else {
+                accountService.deleteAccount(account);
                 break;
             }
         }

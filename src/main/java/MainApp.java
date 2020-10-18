@@ -4,6 +4,9 @@ import domains.Account;
 import domains.Post;
 import repositories.AccountRepositoryDAO;
 import services.AccountService;
+import services.CommentService;
+import services.LikeService;
+import services.PostService;
 
 import java.util.*;
 
@@ -11,11 +14,21 @@ public class MainApp {
     public static void main(String[] args) {
         MainMenu.showMenu();
 //        Account account = new Account();
-//        account.setName("r");
-//        account.setLastName("br");
-//        account.setUsername("sr");
-//        account.setPassword("sr");
-//        account.setPhoneNumber("1111111r");
+//        account.setName("iman");
+//        account.setLastName("iman");
+//        account.setUsername("iman");
+//        account.setPassword("iman");
+//        account.setPhoneNumber("1813");
+//        account.setCreateDate(new Date());
+//        AccountRepositoryDAO accountRepositoryDAO = AccountRepositoryDAO.getInstance();
+//        accountRepositoryDAO.save(account);
+
+//        Account account = new Account();
+//        account.setName("reza");
+//        account.setLastName("reza");
+//        account.setUsername("reza");
+//        account.setPassword("reza");
+//        account.setPhoneNumber("0987");
 //        account.setCreateDate(new Date());
 //        AccountRepositoryDAO accountRepositoryDAO = AccountRepositoryDAO.getInstance();
 //        accountRepositoryDAO.save(account);
@@ -24,7 +37,7 @@ public class MainApp {
 
 //        Post post = new Post();
 //        post.setCreateDate(new Date());
-//        post.setId(2L);
+//        post.setId(138L);
 //        post.setTextPost("post10");
 //        post.setAccount(account);
 //
@@ -87,8 +100,14 @@ public class MainApp {
 //        accountRepositoryDAO.update(account1);
 
 
+//        PostService postService = new PostService();
+//        postService.deletePostByFkAccount(143L);
 
+//        CommentService commentService = new CommentService();
+//        commentService.deletePostByFkAccount(143L);
 
+//        LikeService likeService = new LikeService();
+//        likeService.deletePostByFkAccount(143L);
 
 
 
