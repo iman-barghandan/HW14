@@ -4,8 +4,11 @@ import domains.Account;
 import domains.Comment;
 import domains.Post;
 import repositories.AccountRepositoryDAO;
+import repositories.CommentRepositoryDAO;
+import repositories.LikeRepositoryDAO;
 import repositories.PostRepositoryDAO;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -13,6 +16,8 @@ import java.util.Set;
 public class PostService {
     AccountRepositoryDAO accountRepositoryDAO = AccountRepositoryDAO.getInstance();
     PostRepositoryDAO postRepositoryDAO = PostRepositoryDAO.getInstance();
+    LikeRepositoryDAO likeRepositoryDAO = LikeRepositoryDAO.getInstance();
+    CommentRepositoryDAO commentRepositoryDAO = CommentRepositoryDAO.getInstance();
 
     public void selectPosts(Account inputAccount) {
         Account account = accountRepositoryDAO.selectById(inputAccount.getId());
@@ -81,6 +86,28 @@ public class PostService {
             account.getPostList().remove(post);
             postRepositoryDAO.remove(post);
             System.out.println("Done , deleted");
+            commentRepositoryDAO.removeByFkPost("Comment", postId);
+            likeRepositoryDAO.removeByFkPost("Like", postId);
         }
+    }
+
+    public void selectPostWithMaxLike()
+    {
+        List<Post> postList = postRepositoryDAO.selectAll();
+        int postId=0;
+        if (postList.size()>0)
+        {
+            for (int i=0 ; i<postList.size()-1 ; i++)
+            {
+                if (postList.get(i).getLikeList().size()<postList.get(i+1).getLikeList().size())
+                {
+                    postId=i+1;
+                }
+            }
+        }
+        Post post = postList.get(postId);
+        List<Post> newList = new ArrayList<>();
+        newList.add(post);
+        selectPosts(newList);
     }
 }

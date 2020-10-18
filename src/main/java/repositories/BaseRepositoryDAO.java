@@ -62,6 +62,14 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         entityManager.getTransaction().commit();
     }
 
+    public void removeByFkPost(String inputEntity, long fkPost) {
+        entityManager.getTransaction().begin();
+        Query query = entityManager.createQuery("delete from " + inputEntity + " e where e.post.id=:fkPost");
+        query.setParameter("fkPost", fkPost);
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+    }
+
     public void remove(Entity entity) {
         entityManager.getTransaction().begin();
         entityManager.remove(entity);

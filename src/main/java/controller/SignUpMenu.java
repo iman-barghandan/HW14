@@ -13,7 +13,7 @@ public class SignUpMenu {
         System.out.println("LastName: ");
         String lastName = ScannerClass.getString();
 
-        System.out.println("userName: ");
+        System.out.println("UserName: ");
         String userName = ScannerClass.getString();
 
         System.out.println("Password: ");

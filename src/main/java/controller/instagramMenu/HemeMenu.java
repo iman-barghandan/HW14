@@ -29,7 +29,7 @@ public class HemeMenu {
             if (selectedNumber == 1) {
                 PostsMenu.show(account);
             } else if (selectedNumber == 2) {
-
+                postService.selectPostWithMaxLike();
             } else if (selectedNumber == 3) {
                 System.out.println("Input textPost: ");
                 String textPost = ScannerClass.getString();
