@@ -26,7 +26,8 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
         Entity entity = null;
         try {
             entity = (Entity) query.getSingleResult();
-        } catch (NoResultException n) {
+        } catch (NoResultException n)
+        {
             System.out.println("this username not exist");
         }
         entityManager.getTransaction().commit();
@@ -50,6 +51,7 @@ public abstract class BaseRepositoryDAO<Entity, Id extends Number> {
             System.out.println(p.getLocalizedMessage());
             System.out.println(p.getMessage());
             System.out.println("The information entered is not valid");
+            return null;
         }
         return entity;
     }

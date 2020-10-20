@@ -23,8 +23,7 @@ public class AccountService {
         account.setPassword(password);
         account.setPhoneNumber(phoneNumber);
         account.setCreateDate(new Date());
-        accountRepositoryDAO.save(account);
-        return account;
+        return accountRepositoryDAO.save(account);
     }
 
     public Account selectByUserNameAndPassword(String userName, String password) {
